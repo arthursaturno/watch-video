@@ -1,16 +1,9 @@
-# w
+# watch_video
 
-A new Flutter project.
+Para esse projeto estou utilando o Flutter na versão 3.7.2
 
-## Getting Started
+## Objetivo do watch_video
 
-This project is a starting point for a Flutter application.
+- Consiste em criar uma platarfoma parecida com o tiktok onde o usuario consegue fazer publicações de videos e ver videos
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
