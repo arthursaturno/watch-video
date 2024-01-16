@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
-import 'package:watch_video/authetication/registration_screen.dart';
+import 'package:watch_video/authetication/login_screen.dart';
 import 'package:watch_video/widgets/input_text_widget.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistrationScreenState extends State<RegistrationScreen> {
+  TextEditingController userNameTextEditingController = TextEditingController();
+
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passawordTextEditingController =
       TextEditingController();
-
   bool showProgressBar = false;
 
   @override
@@ -27,22 +28,8 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               const SizedBox(height: 100),
-              const Text(
-                'Watch Video',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 32,
-                ),
-              ),
-              const Icon(
-                Icons.video_call_sharp,
-                size: 36,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
               Text(
-                'Welcome',
+                'Create Account',
                 style: GoogleFonts.acme(
                     fontSize: 30,
                     color: Colors.grey,
@@ -52,14 +39,38 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 10,
               ),
               Text(
-                'Glad to see you!',
+                'to get Started Now!',
                 style: GoogleFonts.actor(
                     fontSize: 34,
                     color: Colors.grey,
                     fontWeight: FontWeight.bold),
               ),
               const SizedBox(
-                height: 100,
+                height: 50,
+              ),
+              GestureDetector(
+                onTap: () {},
+                child: const CircleAvatar(
+                  radius: 80,
+                  backgroundImage: AssetImage("assets/user.jpg"),
+                  backgroundColor: Colors.black,
+                ),
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                child: InputTextWidget(
+                  textEditingController: userNameTextEditingController,
+                  labelString: "Username",
+                  iconData: Icons.person_outline,
+                  isObscure: false,
+                ),
+              ),
+              const SizedBox(
+                height: 25,
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
@@ -105,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                             child: const Center(
                               child: Text(
-                                "Login",
+                                "Sign Up",
                                 style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.black,
@@ -121,16 +132,16 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "Don't have an Account? ",
+                              "Already have an account? ",
                               style:
                                   TextStyle(fontSize: 16, color: Colors.grey),
                             ),
                             InkWell(
                               onTap: () {
-                                Get.to(const RegistrationScreen());
+                                Get.to(const LoginScreen());
                               },
                               child: const Text(
-                                'SignUp Now',
+                                'Login Now',
                                 style: TextStyle(
                                   fontSize: 18,
                                   color: Colors.white,
