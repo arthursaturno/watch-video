@@ -1,4 +1,4 @@
-package com.example.w
+package com.saturnow.watchvideo
 
 import io.flutter.embedding.android.FlutterActivity
 
