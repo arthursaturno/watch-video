@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+
 import 'package:watch_video/authetication/login_screen.dart';
 import 'package:watch_video/widgets/input_text_widget.dart';
+
+import 'authetication_controller.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -20,6 +23,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       TextEditingController();
   bool showProgressBar = false;
 
+  var authenticationController = AuthenticationController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 50),
               Text(
                 'Create Account',
                 style: GoogleFonts.acme(
@@ -49,7 +54,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 50,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  authenticationController.captureImageWithCamera();
+                },
                 child: const CircleAvatar(
                   radius: 80,
                   backgroundImage: AssetImage("assets/user.jpg"),
@@ -164,6 +171,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       animationDuration: 1,
                       backColor: Colors.white38,
                     ),
+              const SizedBox(height: 100),
             ],
           ),
         ),

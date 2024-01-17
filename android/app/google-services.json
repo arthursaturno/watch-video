@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "186301604831",
+    "project_id": "watch-video-app-ac090",
+    "storage_bucket": "watch-video-app-ac090.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186301604831:android:5a5b6961888702df55da6a",
+        "android_client_info": {
+          "package_name": "com.saturnow.watchvideo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYjXxXjRM-_g8bD8q9YcKstnN0egIG5Ec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

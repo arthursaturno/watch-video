@@ -38,7 +38,12 @@ dependencies:
   google_fonts: ^4.0.4
   simple_circular_progress_bar: ^1.0.2
   get: ^4.6.5
+  image_picker: ^1.0.4
+
   cloud_firestore: ^4.14.0
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.16.0
+  firebase_storage: ^11.6.0
 
 dev_dependencies:
   flutter_test:
