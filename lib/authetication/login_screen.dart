@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:watch_video/authetication/registration_screen.dart';
+import 'package:watch_video/global.dart';
 import 'package:watch_video/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -16,8 +17,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passawordTextEditingController =
       TextEditingController();
-
-  bool showProgressBar = false;
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 import 'package:watch_video/authetication/login_screen.dart';
+import 'package:watch_video/global.dart';
 import 'package:watch_video/widgets/input_text_widget.dart';
 
 import 'authetication_controller.dart';
@@ -21,7 +22,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passawordTextEditingController =
       TextEditingController();
-  bool showProgressBar = false;
 
   var authenticationController = AuthenticationController();
 
@@ -117,9 +117,29 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                           ),
                           child: InkWell(
                             onTap: () {
-                              setState(() {
-                                showProgressBar = true;
-                              });
+                              if (authenticationController
+                                          .profileImage !=
+                                      null &&
+                                  userNameTextEditingController
+                                      .text.isNotEmpty &&
+                                  emailTextEditingController.text.isNotEmpty &&
+                                  passawordTextEditingController
+                                      .text.isNotEmpty) {
+                                ///
+                                setState(() {
+                                  showProgressBar = true;
+                                });
+
+                                authenticationController
+                                    .createAccountForNewUser(
+                                  authenticationController.profileImage!,
+                                  userNameTextEditingController.text,
+                                  emailTextEditingController.text,
+                                  passawordTextEditingController.text,
+                                );
+                              }
+
+                              ///
                             },
                             child: const Center(
                               child: Text(
