@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -39,12 +40,8 @@ class AuthenticationController extends GetxController {
     _pickedFile = Rx<File?>(File(pickedImageFile!.path));
   }
 
-  void createAccountForNewUser(
-    File imageFile,
-    String userName,
-    String userEmail,
-    String userPassword,
-  ) async {
+  void createAccountForNewUser(File imageFile, String userName,
+      String userEmail, String userPassword) async {
     //Create user
     UserCredential credential =
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -53,7 +50,22 @@ class AuthenticationController extends GetxController {
     );
 
     //Save image
+    String imageDownloadUrl = await uploadImageToStorage(imageFile);
 
     //Save firestore database
+  }
+
+  Future<String> uploadImageToStorage(File imageFile) async {
+    Reference reference = FirebaseStorage.instance
+        .ref()
+        .child("Profile Images")
+        .child(FirebaseAuth.instance.currentUser!.uid);
+
+    UploadTask uploadTask = reference.putFile(imageFile);
+    TaskSnapshot taskSnapshot = await uploadTask;
+
+    String dowloadUrlOfUploadedImage = await taskSnapshot.ref.getDownloadURL();
+
+    return dowloadUrlOfUploadedImage;
   }
 }
