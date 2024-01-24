@@ -55,7 +55,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  authenticationController.captureImageWithCamera();
+                  authenticationController.chooseImageFromGallery();
                 },
                 child: const CircleAvatar(
                   radius: 80,

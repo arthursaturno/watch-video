@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
+import 'package:watch_video/authetication/authetication_controller.dart';
 import 'package:watch_video/authetication/registration_screen.dart';
 import 'package:watch_video/global.dart';
 import 'package:watch_video/widgets/input_text_widget.dart';
@@ -14,6 +15,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  var authenticationController = AuthenticationController();
+
   TextEditingController emailTextEditingController = TextEditingController();
   TextEditingController passawordTextEditingController =
       TextEditingController();
@@ -101,6 +104,17 @@ class _LoginScreenState extends State<LoginScreen> {
                               setState(() {
                                 showProgressBar = true;
                               });
+
+                              ///
+
+                              if (emailTextEditingController.text.isNotEmpty &&
+                                  passawordTextEditingController
+                                      .text.isNotEmpty) {
+                                authenticationController.loginUser(
+                                  emailTextEditingController.text,
+                                  passawordTextEditingController.text,
+                                );
+                              }
                             },
                             child: const Center(
                               child: Text(
